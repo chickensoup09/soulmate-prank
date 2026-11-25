@@ -1,334 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Your Soulmate ❤️</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffe0ed, #e8d5ff, #ffd6e7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #562b49;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 430px;
-            background: rgba(255, 255, 255, 0.88);
-            padding: 30px 22px;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 15px 45px rgba(120, 50, 100, 0.16);
-        }
-
-        .heart {
-            font-size: 48px;
-            margin-bottom: 12px;
-        }
-
-        h1 {
-            font-size: 27px;
-            margin-bottom: 12px;
-        }
-
-        p {
-            color: #87677f;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .scanner {
-            border: 2px dashed #e99bc1;
-            border-radius: 20px;
-            padding: 25px 12px;
-            background: #fff2f8;
-            margin: 22px 0;
-        }
-
-        .finger {
-            font-size: 75px;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        button {
-            width: 100%;
-            border: none;
-            padding: 16px;
-            border-radius: 30px;
-            background: linear-gradient(90deg, #ec4899, #a855f7);
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform .2s;
-        }
-
-        button:active {
-            transform: scale(.97);
-        }
-
-        button:disabled {
-            opacity: .65;
-            cursor: wait;
-        }
-
-        #progressArea {
-            display: none;
-            margin-top: 25px;
-        }
-
-        .progress-bg {
-            height: 12px;
-            background: #f1d6e5;
-            border-radius: 20px;
-            overflow: hidden;
-            margin: 15px 0;
-        }
-
-        #progress {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #ec4899, #a855f7);
-            transition: width .15s;
-        }
-
-        #status {
-            font-size: 14px;
-            color: #986b89;
-        }
-
-        #result {
-            display: none;
-        }
-
-        .meme {
-            background: linear-gradient(135deg, #38104c, #a51e75);
-            color: white;
-            border-radius: 18px;
-            padding: 25px 12px;
-            margin: 20px 0;
-        }
-
-        .meme .big {
-            font-size: 48px;
-        }
-
-        .meme h2 {
-            font-size: 25px;
-            margin: 12px 0;
-        }
-
-        .meme p {
-            color: #ffe2f4;
-            margin: 0;
-        }
-
-        .video {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border: 0;
-            border-radius: 15px;
-            margin-top: 12px;
-        }
-
-        .small {
-            font-size: 11px;
-            margin-top: 18px;
-            color: #b18da5;
-        }
-
-        #restart {
-            margin-top: 15px;
-            background: #8b5cf6;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Soulmate ❤️</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+min-height:100vh;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ffe0ed,#e8d5ff,#ffd6e7);
+display:flex;justify-content:center;align-items:center;
+padding:20px;color:#562b49
+}
+.container{
+width:100%;max-width:430px;background:#ffffffed;
+padding:30px 22px;border-radius:25px;text-align:center;
+box-shadow:0 15px 45px #78326429
+}
+.heart{font-size:48px;margin-bottom:12px}
+h1{font-size:27px;margin-bottom:12px}
+p{color:#87677f;line-height:1.6;margin-bottom:20px}
+.scanner{
+border:2px dashed #e99bc1;border-radius:20px;
+padding:25px 12px;background:#fff2f8;margin:22px 0;
+cursor:pointer
+}
+.finger{font-size:75px;display:block;margin-bottom:12px}
+button{
+width:100%;border:0;padding:16px;border-radius:30px;
+background:linear-gradient(90deg,#ec4899,#a855f7);
+color:white;font-size:16px;font-weight:bold;cursor:pointer
+}
+button:disabled{opacity:.65}
+#progressArea,#result{display:none}
+.progress-bg{
+height:12px;background:#f1d6e5;border-radius:20px;
+overflow:hidden;margin:15px 0
+}
+#progress{
+height:100%;width:0%;
+background:linear-gradient(90deg,#ec4899,#a855f7);
+transition:width .15s
+}
+#status{font-size:14px}
+.meme{
+background:linear-gradient(135deg,#38104c,#a51e75);
+color:white;border-radius:18px;padding:25px 12px;margin:20px 0
+}
+.meme .big{font-size:48px}
+.meme h2{font-size:25px;margin:12px 0}
+.meme p{color:#ffe2f4;margin:0}
+.video{
+width:100%;aspect-ratio:16/9;border:0;
+border-radius:15px;margin-top:12px
+}
+.small{font-size:11px;margin-top:18px;color:#b18da5}
+#restart{margin-top:15px;background:#8b5cf6}
+</style>
 </head>
-
 <body>
+<div class="container">
 
-    <div class="container">
+<section id="start">
+<div class="heart">💗</div>
+<h1>Find Your Life Partner</h1>
+<p>Curious about who your soulmate is? Our advanced love scanner can reveal your perfect life partner.</p>
 
-        <section id="start">
-            <div class="heart">💗</div>
+<div class="scanner" onclick="startScan()">
+<span class="finger">🖕</span>
+<h3>Place your middle finger here</h3>
+<p style="margin-top:8px;margin-bottom:0">
+Keep your finger on the screen while we scan your love energy.
+</p>
+</div>
 
-            <h1>Find Your Life Partner</h1>
+<button id="scanButton" onclick="startScan()">
+❤️ Discover My Soulmate
+</button>
+<p class="small">Soulmate Detection Technology™</p>
+</section>
 
-            <p>
-                Curious about who your soulmate is?
-                Our advanced love scanner can reveal
-                your perfect life partner.
-            </p>
+<section id="progressArea">
+<div class="heart">💞</div>
+<h1>Finding your soulmate...</h1>
+<p id="status">Connecting to the love universe...</p>
+<div class="progress-bg"><div id="progress"></div></div>
+<h2 id="percentage">0%</h2>
+</section>
 
-            <div class="scanner"
-                onclick="startcan()"
-                style="cursor:pointer;">
-                <span class="finger">🖕</span>
-                <h3>Place your middle finger here</h3>
-                <p style="margin-top:8px; margin-bottom:0;">
-                    Keep your finger on the screen
-                    while we scan your love energy.
-                </p>
-            </div>
+<section id="result">
+<div class="heart">💀</div>
+<h1>SOULMATE FOUND!</h1>
+<p>Your compatibility results are ready. Unfortunately, destiny has other plans.</p>
 
-            <button id="scanButton" onclick="startScan()">
-                ❤️ Discover My Soulmate
-            </button>
+<div class="meme">
+<div class="big">😭💀</div>
+<h2>YOU GOT RICKROLLED!</h2>
+<p>Your soulmate is Rick Astley. Never gonna give you up!</p>
+</div>
 
-            <p class="small">
-                Soulmate Detection Technology™
-            </p>
-        </section>
+<h3>🎵 Your soulmate's official theme song</h3>
+<iframe class="video"
+src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+title="Rick Astley music video"
+allow="autoplay; encrypted-media; picture-in-picture"
+allowfullscreen></iframe>
 
+<p style="margin-top:15px">
+Send this to another friend. Spread the heartbreak. 😂
+</p>
+<button id="restart" onclick="restartScan()">Scan Again</button>
+</section>
 
-        <section id="progressArea">
-            <div class="heart">💞</div>
-            <h1>Finding your soulmate...</h1>
+</div>
 
-            <p id="status">Connecting to the love universe...</p>
+<script>
+const messages=[
+"Connecting to the love universe...",
+"Scanning your love energy...",
+"Checking your relationship history...",
+"Searching for your soulmate...",
+"Calculating compatibility...",
+"Your destiny is being revealed..."
+];
 
-            <div class="progress-bg">
-                <div id="progress"></div>
-            </div>
+let timer;
+let scanning=false;
 
-            <h2 id="percentage">0%</h2>
-        </section>
+function startScan(){
+if(scanning)return;
+scanning=true;
 
+document.getElementById("scanButton").disabled=true;
+document.getElementById("start").style.display="none";
+document.getElementById("progressArea").style.display="block";
 
-        <section id="result">
+let progress=0;
 
-            <div class="heart">💀</div>
+timer=setInterval(()=>{
+progress=Math.min(progress+Math.floor(Math.random()*8)+3,100);
 
-            <h1>SOULMATE FOUND!</h1>
+document.getElementById("progress").style.width=progress+"%";
+document.getElementById("percentage").innerText=progress+"%";
 
-            <p>
-                Your compatibility results are ready.
-                Unfortunately, destiny has other plans.
-            </p>
+let index=Math.min(Math.floor(progress/17),messages.length-1);
+document.getElementById("status").innerText=messages[index];
 
-            <div class="meme">
-                <div class="big">😭💀</div>
+if(progress>=100){
+clearInterval(timer);
+setTimeout(()=>{
+document.getElementById("progressArea").style.display="none";
+document.getElementById("result").style.display="block";
+scanning=false;
+},800);
+}
+},450);
+}
 
-                <h2>YOU GOT RICKROLLED!</h2>
-
-                <p>
-                    Your soulmate is Rick Astley.
-                    Never gonna give you up!
-                </p>
-            </div>
-
-            <h3>🎵 Your soulmate's official theme song</h3>
-
-            <iframe class="video" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="Rick Astley music video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
-            </iframe>
-
-            <p style="margin-top:15px;">
-                Send this to another friend.
-                Spread the heartbreak. 😂
-            </p>
-
-            <button id="restart" onclick="restartScan()">
-                Scan Again
-            </button>
-
-        </section>
-
-    </div>
-
-
-    <script>
-
-        const messages = [
-            "Connecting to the love universe...",
-            "Scanning your love energy...",
-            "Checking your relationship history...",
-            "Searching for your soulmate...",
-            "Calculating compatibility...",
-            "Your destiny is being revealed..."
-        ];
-
-        let timer;
-
-        function startScan() {
-
-            const button = document.getElementById("scanButton");
-
-            button.disabled = true;
-
-            document.getElementById("start").style.display = "none";
-            document.getElementById("progressArea").style.display = "block";
-
-            let progress = 0;
-
-            timer = setInterval(() => {
-
-                progress += Math.floor(Math.random() * 8) + 3;
-
-                if (progress >= 100) {
-                    progress = 100;
-                }
-
-                document.getElementById("progress").style.width =
-                    progress + "%";
-
-                document.getElementById("percentage").innerText =
-                    progress + "%";
-
-                const index = Math.min(
-                    Math.floor(progress / 17),
-                    messages.length - 1
-                );
-
-                document.getElementById("status").innerText =
-                    messages[index];
-
-                if (progress >= 100) {
-
-                    clearInterval(timer);
-
-                    setTimeout(() => {
-
-                        document.getElementById("progressArea")
-                            .style.display = "none";
-
-                        document.getElementById("result")
-                            .style.display = "block";
-
-                    }, 800);
-                }
-
-            }, 450);
-        }
-
-        function restartScan() {
-
-            clearInterval(timer);
-
-            document.getElementById("result").style.display = "none";
-            document.getElementById("start").style.display = "block";
-
-            document.getElementById("progress").style.width = "0%";
-            document.getElementById("percentage").innerText = "0%";
-
-            document.getElementById("scanButton").disabled = false;
-        }
-
-    </script>
-
+function restartScan(){
+clearInterval(timer);
+scanning=false;
+document.getElementById("result").style.display="none";
+document.getElementById("start").style.display="block";
+document.getElementById("progress").style.width="0%";
+document.getElementById("percentage").innerText="0%";
+document.getElementById("scanButton").disabled=false;
+}
+</script>
 </body>
-
 </html>
